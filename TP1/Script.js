@@ -185,11 +185,11 @@ let studentbis=[
 ];
 let somme=0;
 let resultat=0;
-for(let i=0;i<studentbis.length;i++){
+let i=0;
+while( i<studentbis.length){
     somme=studentbis[i].NoteMaths+studentbis[i].NoteFr;
     resultat=somme/2;
-    console.log(studentbis[i].name,resultat);
-}
-while(resultat>=10){
-    
+    if(resultat>=10){
+        console.log(studentbis[i],"Admis");}
+    i=i+1;
 }
