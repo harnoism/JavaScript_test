@@ -128,8 +128,59 @@ function swap(tableau,indexA,indexB){
     tableau[indexB] = temp;
 
 }
-swap(tableau,indexA,indexB);
+swap(tableau,0,2);
 console.log("Tableau après échange :");
 for (let i = 0; i < tableau.length; i++) {
-    console.log(tableau[i].prenom + " : " + tableau[i].moy.toFixed(1));
+    console.log(tableau[i].student_name + " : " + tableau[i].moy.toFixed(1));
 }
+
+
+/* ============================================================
+   Partie 6
+   ============================================================ */
+
+function triParSelection(tableau){
+    let comparaisons = 0;
+    let echanges = 0;
+
+    // Sauvegarde du tableau avant tri
+    let tableauAvantTri = [];
+    for (let i = 0; i < tableau.length; i++) {
+        tableauAvantTri.push(tableau[i]);
+    }
+
+    for (let i = 0; i < tableau.length - 1; i++) {
+        let indiceMin = i;
+
+        for (let j = i + 1; j < tableau.length; j++) {
+            comparaisons++;
+            if (tableau[j].moy < tableau[indiceMin].moy) {
+                indiceMin = j;
+            }
+        }
+
+        if (indiceMin !== i) {
+            let temp = tableau[i];
+            tableau[i] = tableau[indiceMin];
+            tableau[indiceMin] = temp;
+            echanges++;
+        }
+    }
+}
+triParSelection(tableau);
+console.log("Tri par Selection :");
+for (let i = 0; i < tableau.length; i++) {
+    console.log(tableau[i].student_name + " : " + tableau[i].moy.toFixed(1));
+}
+
+
+/* ============================================================
+   Partie 7
+   ============================================================ */
+
+genererEleves();
+afficherEleves(tableau);
+trouverMoyenneMin(tableau);
+afficherDonnees(tableau);
+swap(tableau,0,2);
+triParSelection(tableau);
