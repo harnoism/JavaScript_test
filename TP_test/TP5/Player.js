@@ -89,5 +89,4 @@ movearound(thisway) {
         break;
     }
 }
-
 }
