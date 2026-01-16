@@ -1,0 +1,163 @@
+
+body {
+    font-family: "Delius", cursive;
+    font-weight: 400;
+    font-style: normal;
+    position: relative;
+    /* margin-top: 100px; */
+    margin-left: calc((100vw - 100%) / -2);
+    width: 100vw;
+    background: #b50b90;
+    background: radial-gradient(circle,rgba(181, 11, 144, 1) 0%, rgba(69, 5, 60, 1) 100%);
+    background-attachment: fixed;
+    background-size: cover;
+    color:var(--rose-clair);
+    /* overflow: hidden; */ 
+}
+
+:root {
+  --rose-vif: #ff46a2;         /* rose vif */
+  --blanc: #ffffff;            /* blanc */
+  --violet-fonce: #641B61;     /* violet foncé / fond */
+  --rose-clair: #FFB5FF;       /* rose clair / lilas des boutons */
+  --rose1: #A71F81;       
+  --noir-fonce: #1a0019;       /* noir foncé / ombres */
+}
+
+main {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+h1 {
+    font-family: "Cherry Bomb One", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 20px #ff06b4;
+    animation: flicker 2s infinite;
+    color:var(--rose-vif)
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+form {
+    background: rgba(0, 20, 10, 0.8);
+    border: 2px solid #e243bd;
+    padding: 2rem;
+    border-radius: 10px;
+    min-width: 300px;
+}
+
+label {
+    display: block;
+    margin: 1rem 0 0.5rem;
+    font-size: 1.2rem;
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 1rem;
+    background: #001a0f;
+    border: 1px solid #3d3d3d;
+    color: #ffffff;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 20px hsl(332, 100%, 65%);
+}
+
+.sprite-options {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(255, 46, 151, 0.05);
+    border-radius: 15px;
+    border: 1px solid #e243bd;
+}
+
+.sprite-option {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    padding: 0.8rem;
+    background: var(--violet-fonce);
+    border-radius: 10px;
+    border: 1px solid transparent;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.sprite-option:hover {
+    background:var(--rose1);
+    transform: translateX(5px);
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+button {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    background: var(--violet-fonce);
+    color:var(--rose-clair);
+    border: none;
+    font-family: 'Bytesized', monospace;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background:var(--rose1);
+    transform: translateX(5px);
+    box-shadow: 0 0 20px #3e0f21;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+#sprite-options {
+    display: grid;
+    grid-template-columns: repeat(6, 64px); /* 6 colonnes */
+    gap: 3px;
+    justify-content: center;
+}
+
+label input[type="radio"] {
+    display: none;
+}
+
+label canvas {
+    background: var(--violet-fonce);
+    border-radius: 6px;
+    box-shadow: 0 0 0 transparent;
+    transition: all 0.2s ease;
+}
+
+label input[type="radio"]:checked + canvas {
+    background:var(--rose-clair);
+    box-shadow: 0 0 50px hsl(332, 100%, 65%);
+}
+label canvas:hover {
+    border-color: #ffffff55;
+}

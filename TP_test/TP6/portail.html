@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Rubik+Puddles&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="portail.css">
+    <title>Portail</title>
+</head>
+<body>
+    <main>
+        <h1>JSARENA</h1>
+        <form id="portailForm">
+            <label for="pseudo">Player name
+            <input type="text" id="pseudo" name="pseudo" placeholder="Enter your gamertag..." required>
+            </label>
+
+            <label for="server">Server URL
+            <input type="text" id="server" name="server" placeholder="Enter your gamertag..." required>
+            </label>
+
+            <div id="sprite-options">
+                
+            <!-- <div><p>Choose your skin</p></div> -->
+                <!-- <div class="sprite-option">
+                    <input type="checkbox" id="sprite1" name="sprite1" value="sprite1">
+                    <label for="sprite1">Sprite 1</label>
+                </div>
+                <div class="sprite-option">
+                    <input type="checkbox" id="sprite2" name="sprite2" value="sprite2">
+                    <label for="sprite2">Sprite 2</label>
+                </div>
+                <div class="sprite-option">
+                    <input type="checkbox" id="sprite3" name="sprite3" value="sprite3">
+                    <label for="sprite3">Sprite 3</label>
+                </div> -->
+            </div>
+
+            <p id="error"></p>
+            <button id="button" type="submit">JOIN</button>
+        </form>
+    </main>   
+
+    <script src="portail.js"></script>
+    <!-- <script type="module" src="faultyTerminal.js"></script> -->
+</body>
+</html>
