@@ -22,7 +22,6 @@ class GameController {
         this.socket = new WebSocket(
         this.url //url
         );
-    
    
         this.movement={   //création d'un dico pr mettre objet
             up:false,
@@ -37,28 +36,27 @@ class GameController {
        
     } //constructor
     
-    
-    // === Main render loop ===
-    loop(timestamp) {
-
-        
-        // Request the next frame
-        requestAnimationFrame(this.loop);
-    }
     initSocket(){
         this.socket.onopen=()=>{
             console.log("Connected to server");
     
-            this.socket.send(JSON.stringify({
+            this.socket.send(JSON.stringify({   //envoie un message
                 name: this.pseudo,
                 skinPath: this.skinPath
             }));
         };
 
         this.socket.onmessage=(event)=>{
-            console.log(event.data);
-            this.skinPath;
-            this.pseudo;
+             this.lastServerUpdate = performance.now();
+            // Parse the received game state
+            const gameState = JSON.parse(event.data);
+            console.log(gameState);
+            // Synchronize frontend game state with backend data
+            this.game.update(gameState);
+        };
+
+        this.socket.onclose = () => {
+            console.log("Disconnected from server");
         };
         console.log(JSON.stringify( {name:this.pseudo,skinPath:this.skinPath}))
     }
@@ -105,15 +103,24 @@ class GameController {
         });
     }
 
-    startInputSender(){
+    startInputSender() {
+        // Send inputs to the server at the same rate as server ticks
         setInterval(() => {
-            if(this.socket.readyState===this.socket.OPEN){
-                this.socket.send(JSON.stringify({
+            // Do nothing if the socket is not ready
+            if (this.socket.readyState !== WebSocket.OPEN) return;
+
+            // Send the current input state
+            this.socket.send(JSON.stringify({
                 type: "input",
                 input: this.inputState
-                }));
-            }       
-        },this.SERVER_INTERVAL)
+            }));
+        }, this.SERVER_INTERVAL);
+    }
+    // === Main render loop ===
+    loop(timestamp) {
+
+        // Request the next frame
+        requestAnimationFrame(this.loop);
     }
 
 }
