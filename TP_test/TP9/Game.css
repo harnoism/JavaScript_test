@@ -1,0 +1,17 @@
+#classement {
+    border: 1px solid black;
+    
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px;
+    display: inline-block;
+    vertical-align: top;
+}
+/* #Scores{
+    color:black;
+    display: inline-block;
+} */
+body{
+    background: #b50b90;
+    background: radial-gradient(circle,rgba(181, 11, 144, 1) 0%, rgba(69, 5, 60, 1) 100%);
+}
