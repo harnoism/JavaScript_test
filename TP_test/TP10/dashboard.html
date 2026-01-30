@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Rubik+Puddles&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="dashboard.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Connexion au serveur</h1>
+    <form id="form">
+        <div>
+            <label for="prenom">IP : </label>
+            <input id="prenom" name="prenom" value="13.38.137.68:8000" type="text" required />
+        </div>
+        <div>
+            <label for="pet-select">Choisissez un player:</label>
+
+            <select name="player" id="player">
+                <option value="">--Veuillez choisir un player--</option>
+                <option value=""></option>
+            </select>
+
+        </div>
+        <div><button>GET DATA</button></div>
+    </form>
+    <script src="dashboard.js"></script>
+</body>
+
+</html>
